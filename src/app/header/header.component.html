@@ -1,0 +1,57 @@
+<div class="pb-32 bg-center bg-hero-pattern">
+  <div class="flex items-center justify-between pt-6 text-white px-7">
+    <div class="font-medium">
+      <a routerLink="/">SOUNDCLOUD</a>
+    </div>
+    <div>
+      <div *ngIf="hideAuth()" class="flex items-center space-x-5">
+        <div>
+          <a
+            (click)="logging()"
+            routerLink="/"
+            class="px-3 py-1 border border-white rounded"
+            >Sign in</a
+          >
+        </div>
+        <div>
+          <a
+            (click)="register()"
+            routerLink="/"
+            class="px-6 py-2 bg-orange-600 rounded"
+            >Create Account</a
+          >
+        </div>
+      </div>
+      <div *ngIf="!hideAuth()">
+        <div>
+          <a
+            (click)="reload()"
+            routerLink="/"
+            class="px-6 py-2 bg-orange-600 rounded"
+            >Sign out</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="space-y-4 text-center text-white px-96 mt-28">
+    <div>
+      <h1 class="text-4xl font-bold">Connect on SoundCloud</h1>
+    </div>
+    <div>
+      <p class="text-lg">
+        Discover, stream, and share a constantly expanding mix of music from
+        emerging and major artists around the world.
+      </p>
+    </div>
+    <div *ngIf="hideAuth()">
+      <button
+        routerLink="/"
+        (click)="register()"
+        class="px-10 py-2 text-lg bg-orange-600 rounded"
+      >
+        Sign Up For Free
+      </button>
+    </div>
+  </div>
+</div>

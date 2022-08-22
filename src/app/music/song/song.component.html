@@ -1,0 +1,27 @@
+<div *ngIf="!isUserLogged()" (mouseenter)="playSong()" (click)="openPlayer()">
+  <div
+    (mouseenter)="showPlayIcon = true"
+    (mouseleave)="showPlayIcon = false"
+    class="relative flex items-center justify-center cursor-pointer"
+  >
+    <div
+      *ngIf="showPlayIcon"
+      class="absolute z-10 flex items-center justify-center w-20 h-20 bg-gray-200 rounded-full"
+    >
+      <img
+        class="w-12 h-12"
+        src="https://cdn-icons-png.flaticon.com/512/7781/7781766.png"
+        alt=""
+      />
+    </div>
+    <div class="z-0">
+      <img src="{{ song.image }}" alt="" />
+    </div>
+  </div>
+  <div class="cursor-pointer">
+    {{ song.title }}
+  </div>
+  <div class="cursor-pointer">
+    <p>{{ song.author }}</p>
+  </div>
+</div>

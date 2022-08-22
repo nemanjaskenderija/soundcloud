@@ -1,0 +1,139 @@
+<div class="bg-gray-100">
+  <div
+    id="authContainer"
+    *ngIf="getData() || showPlayer()"
+    (click)="getData()"
+    style="background-color: hsla(0, 0%, 94.9%, 0.9)"
+    class="fixed z-10 flex items-center justify-center w-full h-full"
+  >
+    <div *ngIf="loggin()" class="w-full max-w-xs bg-white">
+      <form id="loginForm" (ngSubmit)="submitLogin()" #myForm="ngForm">
+        <div class="px-5 py-8 space-y-5">
+          <div
+            class="float-right -mt-6 text-xl cursor-pointer"
+            (click)="reloadPage()"
+          >
+            x
+          </div>
+          <div>
+            <div><label for="Email">Email</label></div>
+            <div class="w-full mt-2">
+              <input
+                class="w-full p-2 border border-gray-300 rounded-sm"
+                type="text"
+                placeholder="Email"
+                [(ngModel)]="loginForm.email"
+                name="email"
+                #email="ngModel"
+                id=""
+              />
+            </div>
+          </div>
+          <div>
+            <div><label for="Password">Password</label></div>
+            <div class="mt-2">
+              <input
+                class="w-full p-2 border border-gray-300 rounded-sm"
+                type="text"
+                placeholder="password"
+                [(ngModel)]="loginForm.password"
+                name="password"
+                #password="ngModel"
+                id=""
+              />
+            </div>
+          </div>
+          <div class="flex justify-center w-full">
+            <button
+              type="submit"
+              (click)="submitLogin()"
+              class="w-full p-2 text-white bg-orange-600 rounded-sm"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="register()" class="w-full max-w-xs bg-white">
+      <form (ngSubmit)="submitRegister()" #myForm="ngForm">
+        <div class="px-5 py-8 space-y-5">
+          <div
+            class="float-right -mt-6 text-xl cursor-pointer"
+            (click)="reloadPage()"
+          >
+            x
+          </div>
+          <div>
+            <div><label for="Email">Email</label></div>
+            <div class="w-full mt-2">
+              <input
+                [(ngModel)]="registerForm.email"
+                class="w-full p-2 border border-gray-300 rounded-sm"
+                type="text"
+                placeholder="email..."
+                name="email"
+                #email="ngModel"
+                id=""
+              />
+            </div>
+          </div>
+          <div>
+            <div><label for="Password">Password</label></div>
+            <div class="mt-2">
+              <input
+                [(ngModel)]="registerForm.password"
+                class="w-full p-2 border border-gray-300 rounded-sm"
+                type="text"
+                placeholder="password..."
+                name="password"
+                #password="ngModel"
+                id=""
+              />
+            </div>
+          </div>
+          <div>
+            <div><label for="Password">Confirm password</label></div>
+            <div class="mt-2">
+              <input
+                class="w-full p-2 border border-gray-300 rounded-sm"
+                type="text"
+                placeholder="repeat password ..."
+                [(ngModel)]="registerForm.confirmPassword"
+                #confirmPassword="ngModel"
+                name="confirm_password"
+                id=""
+              />
+            </div>
+          </div>
+          <div class="flex justify-center w-full">
+            <button
+              type="submit"
+              (click)="submitRegister()"
+              class="w-full p-2 text-white bg-orange-600 rounded-sm"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="showPlayer()">
+      <app-audio-player></app-audio-player>
+    </div>
+  </div>
+  <div class="container bg-white">
+    <!-- Header -->
+    <div>
+      <app-header></app-header>
+    </div>
+    <!-- Music -->
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+    <!-- Footer -->
+    <div class="mt-10">
+      <app-footer></app-footer>
+    </div>
+  </div>
+</div>

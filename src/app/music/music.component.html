@@ -1,0 +1,12 @@
+<app-search (input)="test()"></app-search>
+<div class="text-center">
+  <h1 class="text-2xl">
+    Hear what’s trending for free in the SoundCloud community
+  </h1>
+  <h5 class="text-xs">Log-in to get access to playlist.</h5>
+</div>
+<div class="flex flex-wrap justify-center w-full gap-5 mt-8">
+  <ng-container *ngFor="let singleSong of songs; let i = index">
+    <app-song class="w-1/6" [song]="singleSong"></app-song>
+  </ng-container>
+</div>
