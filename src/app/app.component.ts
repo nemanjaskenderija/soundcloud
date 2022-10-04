@@ -11,7 +11,8 @@ import { MusicService } from './music/music.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'soundcloud';
+  title: string = 'soundcloud';
+  test: boolean = true;
   registerForm: any = {
     email: '',
     password: '',
